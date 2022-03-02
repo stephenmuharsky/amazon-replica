@@ -48,6 +48,8 @@
   display: flex;
   align-items: center;
   color: white;
+  position: relative;
+  top: 2px;
 }
 
 .header-basket-count {
@@ -66,4 +68,15 @@
   margin-left: 10px;
   margin-right: 10px;
   color: white;
+}
+
+.sign-in {
+  position: relative;
+  bottom: 4px;
+  text-decoration: none;
+  color: white;
+}
+
+.sign-in:hover {
+  text-decoration: underline;
 }
