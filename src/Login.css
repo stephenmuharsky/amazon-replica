@@ -64,3 +64,8 @@
   margin-top: 10px;
   border-color: darkgray;
 }
+
+.login-signInButton,
+.login-registerButton:hover {
+  cursor: pointer;
+}

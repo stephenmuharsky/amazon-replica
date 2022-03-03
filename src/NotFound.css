@@ -1,0 +1,47 @@
+.wrapper {
+  background-color: rgb(234, 237, 237);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.body {
+  margin-top: 4em;
+  display: flex;
+  flex-direction: column;
+  color: #606060;
+  font-family: AmazonEmber_Lt;
+}
+
+@font-face {
+  font-family: AmazonEmber_Lt;
+  src: url("./assets/Ember/AmazonEmber_Th.ttf");
+}
+
+.image-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.link {
+  color: #0063c1;
+  text-decoration: underline #0063c1;
+}
+
+.line-one {
+  font-size: larger;
+}
+
+.line-one,
+.line-three {
+  margin-bottom: 4px;
+}
+
+.line-two {
+  margin-bottom: 20px;
+}
+
+.text-container {
+  margin-bottom: 3em;
+}

@@ -18,6 +18,10 @@
 .checkoutProduct-info > button:hover {
   cursor: pointer;
 }
+.checkoutProduct-info > button:focus,
+button:active {
+  border: 2px solid #72bcd4;
+}
 
 .checkoutProduct-image {
   object-fit: contain;

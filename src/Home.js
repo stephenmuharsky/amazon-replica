@@ -58,6 +58,45 @@ function Home() {
             id="1034976"
           />
         </div>
+        <div className="home-row">
+          <Product
+            title="DJI Air 2S - Drone Quadcopter UAV with 3-Axis Gimbal Camera, 5.4K Video, 4 Directions of Obstacle Sensing, 31-Min Flight Time, Max 7.5-Mile Video Transmission, Gray"
+            price={1249}
+            image="https://m.media-amazon.com/images/I/61OQEmuM6hL._AC_SL1500_.jpg"
+            rating={5}
+            id="9991012"
+          />
+          <Product
+            title="Protocol Punching Ball Adjustable Height Withstands Tough Beatings Great Value"
+            price={147.19}
+            image="https://m.media-amazon.com/images/I/71Ztcf8ZTfL._AC_SL1500_.jpg"
+            rating={4}
+            id="1420086"
+          />
+        </div>
+        <div className="home-row">
+          <Product
+            title="Elden Ring - PlayStation 5 Edition"
+            price={79.99}
+            image="https://m.media-amazon.com/images/I/81goNGEYm6L._AC_SL1500_.jpg"
+            rating={5}
+            id="31509436"
+          />
+          <Product
+            title="Dragon Incense Holders Ceramic Backflow Handcraft Incense Burner with 40 Pcs Incense Cone and 50 Pcs Incense Sticks"
+            price={42.99}
+            image="https://m.media-amazon.com/images/I/71LL3B4wvWS._AC_SL1500_.jpg"
+            rating={3}
+            id="3163095"
+          />
+          <Product
+            title="CHARMOUNT Corner Shower Caddy, Adhesive Metal Bathroom Organizer Corner Shower Shelf, No Drill Wall Mounted Shower Storage Rack (1 Pack, Black)"
+            price={17.99}
+            image="https://m.media-amazon.com/images/I/61qTe0pxwbL._AC_SL1341_.jpg"
+            rating={5}
+            id="1111111"
+          />
+        </div>
       </div>
     </div>
   );
