@@ -7,6 +7,9 @@ import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
 import { getBasketTotal } from "./reducer";
 import CurrencyFormat from "react-currency-format";
 import axios from "./axios";
+import { db, colRef } from "./firebase";
+import { collection, doc, addDoc, setDoc } from "firebase/firestore";
+//import { collection, doc } from "firebase/firestore";
 
 function Payment() {
   const [{ basket, user }, dispatch] = useStateValue();
@@ -18,6 +21,19 @@ function Payment() {
   const [processing, setProcessing] = useState("");
   const [clientSecret, setClientSecret] = useState(true);
   const navigate = useNavigate();
+
+  // const addToDatabase = () => {
+  //   colRef
+  //     .doc("orders")
+  //     .doc(user?.id)
+  //     .collection("orders")
+  //     .doc(paymentIntent.id)
+  //     .set({
+  // basket: basket,
+  // amount: paymentIntent.amount,
+  // created: paymentIntent.created,
+  //     });
+  // };
 
   useEffect(() => {
     //generate the Stripe secret which allows us to charge a customer
@@ -45,10 +61,29 @@ function Payment() {
         },
       })
       .then(({ paymentIntent }) => {
-        //paymentIntent = payment confirmation
+        const addDocument = async (user, paymentIntent, basket) => {
+          const ref = doc(db, "orders", user?.uid, "orders", paymentIntent.id);
+
+          const docRef = await setDoc(ref, {
+            basket: basket,
+            amount: paymentIntent.amount,
+            created: paymentIntent.created,
+          })
+            .then(() => {
+              alert("data added succesfuly");
+            })
+            .catch((error) => {
+              alert("unsuccessful operation. error: ", error);
+            });
+        };
+        addDocument(user, paymentIntent, basket);
+
         setSucceeded(true);
         setError(null);
         setProcessing(false);
+        dispatch({
+          type: "EMPTY_BASKET",
+        });
         navigate("/orders");
       });
   };
@@ -104,11 +139,7 @@ function Payment() {
               <CardElement onChange={handleChange} />
               <div className="payment-priceContainer">
                 <CurrencyFormat
-                  renderText={(value) => (
-                    <>
-                      <h3>Order Total: {value}</h3>
-                    </>
-                  )}
+                  renderText={(value) => <h3>Order Total: {value}</h3>}
                   decimalScale={2}
                   value={getBasketTotal(basket)}
                   displayType={"text"}

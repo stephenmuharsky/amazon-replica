@@ -55,6 +55,8 @@
 .header-basket-count {
   margin-left: 7px;
   margin-right: 10px;
+  color: orange;
+  font-size: larger;
 }
 
 .header-nav {
@@ -78,5 +80,16 @@
 }
 
 .sign-in:hover {
+  text-decoration: underline;
+}
+
+#orders {
+  position: relative;
+  bottom: 4px;
+  text-decoration: none;
+  color: white;
+}
+
+#order:hover {
   text-decoration: underline;
 }

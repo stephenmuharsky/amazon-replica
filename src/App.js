@@ -11,6 +11,7 @@ import NotFound from "./NotFound";
 import Payment from "./Payment";
 import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
+import Orders from "./Orders";
 
 const promise = loadStripe(
   "pk_test_51KZK9oH2RdAte4e8EAvAtkVbqCclQBh8JW1YtEDN5HvUvy94NL4baFO776dVyA4RQwsDcQWbXlSCy7wghgC4N26D00InHFs3ZA"
@@ -40,9 +41,14 @@ function App() {
     <Router>
       <div className="App">
         <Routes>
-          <Route path="/login" element={<Login />} />
-          <Route path="/" element={[<Header />, <Home />]} />
-          <Route path="/checkout" element={[<Header />, <Checkout />]} />
+          <Route path="/orders" element={[<Header />, <Orders />]} key={1} />
+          <Route path="/login" element={<Login />} key={2} />
+          <Route path="/" element={[<Header />, <Home />]} key={3} />
+          <Route
+            path="/checkout"
+            element={[<Header />, <Checkout />]}
+            key={4}
+          />
           <Route
             path="/payment"
             element={[
@@ -51,8 +57,9 @@ function App() {
                 <Payment />
               </Elements>,
             ]}
+            key={5}
           />
-          <Route path="*" element={<NotFound />} />
+          <Route path="*" element={<NotFound />} key={6} />
         </Routes>
       </div>
     </Router>

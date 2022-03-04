@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Header.css";
 import amazonLogo from "./assets/amazon_header.png";
 import SearchIcon from "@material-ui/icons/Search";
@@ -9,6 +9,7 @@ import { auth } from "./firebase";
 
 function Header() {
   const [{ basket, user }, dispatch] = useStateValue();
+  const [underline, setUnderline] = useState("none");
   const handleAuthentication = () => {
     if (user) {
       auth.signOut();
@@ -40,7 +41,17 @@ function Header() {
         </div>
         <div className="header-option">
           <span className="header-option-lineOne">Returns</span>
-          <span className="header-option-lineTwo">Orders</span>
+          <Link
+            to="/orders"
+            clasName="order-class"
+            style={{ textDecoration: `${underline} white` }}
+            onMouseEnter={() => setUnderline("underline")}
+            onMouseLeave={() => setUnderline("none")}
+          >
+            <span className="header-option-lineTwo" id="orders">
+              & Orders
+            </span>
+          </Link>
         </div>
         <div className="header-option">
           <span className="header-option-lineOne">Your</span>
